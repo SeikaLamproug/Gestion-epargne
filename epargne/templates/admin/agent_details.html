@@ -1,0 +1,41 @@
+{% extends 'admin/principal.html' %}
+
+{% block content %}
+
+<div class="text-right">
+    <a href="{% url 'agents' %}" class="btn btn-primary">Retour</a>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Informations du client</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Identifiant : <strong>{{ agent.identifiant }}</strong></li>
+                <li class="list-group-item">Nom : <strong>{{ agent.nom }}</strong></li>
+                <li class="list-group-item">Prénom : <strong>{{ agent.prenom }}</strong></li>
+                <li class="list-group-item">Date naissance : <strong>{{ agent.date_naissance }}</strong></li>
+                <li class="list-group-item">Phone mail : <strong>{{ agent.Telephone }}</strong></li>
+                <li class="list-group-item">CNI : <strong>{{ agent.cni }}</strong></li>
+                <li class="list-group-item">Adresse : <strong>{{ agent.adresse }}</strong></li>
+                <li class="list-group-item">Zone : <strong>{{ agent.Zone }}</strong></li>
+                {% if agent.clients.all %}
+                <h3 class="card-title">Clients assignés :</h3>
+                <ul class="list-group">
+                    {% for client in agent.clients.all %}
+                        <li class="list-group-item">{{ client.nom }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Aucun client assigné</p>
+            {% endif %}
+            </ul><br/>
+
+            <div class="text-center">
+                <a href="{% url 'new_assign' agent.identifiant %}" class="btn btn-success">Assigner un client</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

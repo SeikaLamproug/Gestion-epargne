@@ -1,0 +1,73 @@
+{% extends 'admin/comptable.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card mt-5">
+        <div class="card-header">
+          <h5 class="card-title">Formulaire de Suggestion</h5>
+        </div>
+        <div class="card-body">
+          <form id="suggestionForm" class="needs-validation" novalidate>
+            <div class="form-group">
+              <label for="suggestionTitle">Titre</label>
+              <input type="text" class="form-control" name="suggestionTitle" id="suggestionTitle" required>
+              <div class="invalid-feedback">
+                Veuillez saisir un titre.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="suggestionContent">Contenu</label>
+              <textarea class="form-control" name="suggestionContent" id="suggestionContent" rows="5" required></textarea>
+              <div class="invalid-feedback">
+                Veuillez saisir le contenu de votre suggestion.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Styles précédents */
+
+  /* Personnalisation des styles de validation */
+  .was-validated .form-control:valid,
+  .was-validated .form-control:invalid {
+    border-color: #ddd;
+    padding-right: 30px;
+  }
+
+  .was-validated .form-control:valid:focus,
+  .was-validated .form-control:invalid:focus {
+    border-color: #80bdff;
+    box-shadow: none;
+  }
+
+  .was-validated .form-control:valid~.invalid-feedback,
+  .was-validated .form-control:invalid~.invalid-feedback {
+    display: block;
+  }
+</style>
+
+<script>
+  // Initialisation de la validation de formulaire de Bootstrap
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var form = document.getElementById('suggestionForm');
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    }, false);
+  })();
+</script>
+{% endblock content %}

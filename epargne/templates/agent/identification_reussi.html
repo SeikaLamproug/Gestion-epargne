@@ -1,0 +1,95 @@
+{% extends 'agent/agent_connect.html' %}
+
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Formulaire</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <style>
+        body {
+            background-color: #f2f2f2; /* Fond gris */
+        }
+        .form-control {
+            background-color: #e9ecef; /* Couleur de fond légèrement plus foncée */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Couleur bleue */
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Couleur bleue plus foncée au survol */
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card">
+                    {% if messages %}
+
+					{% for message in messages %}
+					<div class="alert alert-info">
+						{{ message }}
+					</div>
+					{% endfor %}
+
+				{% endif %}
+                    <div class="card-header">
+                        <h3 class="text-center">Formulaire</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="nom">Nom</label>
+                                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" value="{{client.nom}}">
+                                </div>
+                                <div class="col">
+                                    <label for="prenom">Prénom</label>
+                                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" value="{{client.prenom}}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="type_compte">Type de Compte</label>
+                                    <input type="text" class="form-control" id="type_compte" name="type_compte" placeholder="Type de Compte" value="{{client.Type_compte}}">
+                                </div>
+                                <div class="col">
+                                    <label for="cotisation">Cotisation Journalière</label>
+                                    <input type="text" class="form-control" id="cotisation" name="cotisation" placeholder="Cotisation Journalière" value="{{client.Frais_tontine}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="identifiant">Montant a saisir</label>
+                                <input type="text" class="form-control" id="identifiant" name="montant" placeholder="Identifiant">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block" onclick="submitForm()">Enregistrer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script>
+        function submitForm() {
+            // Code pour traiter le formulaire ici
+        }
+    </script>
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Interface Agent</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{%static 'agent/css/style.css' %}">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+				<div class="p-4">
+		  		<h1><a href="index.html" class="logo">Agent</a></h1>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="{% url 'agent_connection' %}"><span class="fa fa-home mr-3"></span> Accueil</a>
+	          </li>
+	          <li>
+	              <a href="{% url 'agent_identification' %}"><span class="fa fa-user mr-3"></span>Clients</a>
+	          </li>
+			  <li>
+				<a href="agent_logout"><span class="fa fa-sign-out mr-3"></span>Déconnexion</a>
+			</li>
+			
+	        </ul>
+
+	        <div class="mb-5">
+						
+						<form action="#" class="subscribe-form">
+	            <div class="form-group d-flex">
+	            	
+	            </div>
+	          </form>
+					</div>
+
+	        <div class="footer">
+	        	
+	        </div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Bienvenue...</h2>
+        {% block content %}
+        
+        {% endblock content %}
+		
+         
+      </div>
+		</div>
+
+    <script src="{%static 'agent/js/jquery.min.js'%}"></script>
+    <script src="{%static 'agent/js/popper.js'%}"></script>
+    <script src="{%static 'agent/js/bootstrap.min.js'%}"></script>
+    <script src="{%static 'agent/js/main.js'%}"></script>
+  </body>
+</html>

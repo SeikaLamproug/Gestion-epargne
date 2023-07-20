@@ -1,0 +1,129 @@
+{% extends 'admin/principal.html' %}
+
+{% block content %}
+
+<style>
+	.form-container {
+		max-width: 5000px;
+		margin: 0 auto;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+
+	.form-container input[type="text"],
+	.form-container input[type="password"] {
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+
+	.form-container select {
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+
+	.form-container button {
+		width: 100%;
+		padding: 10px;
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	@keyframes slideIn {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.animation-container {
+		animation: slideIn 0.5s ease-in-out forwards;
+	}
+
+	.fade-in {
+		animation: fadeIn 0.5s ease-in-out forwards;
+	}
+</style>
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="form-container animation-container">
+				<h3>Inscription Agent</h3>
+				<form id="registration-form" method="post">
+                    {% csrf_token %}
+					<div class="form-group">
+						<input type="text" name="nom" placeholder="Nom d'utilisateur">
+					</div>
+					<div class="form-group">
+						<input type="text" name="prenom" placeholder="Prenom d'utilisateur">
+					</div>
+					<div class="form-group">
+						<input type="text" name="address" placeholder="Adresse">
+					</div>
+					<div class="form-group">
+						<input type="email" name="Email" placeholder="Email">
+					</div>
+					<div class="form-group">
+						<input type="date" name="birthdate" placeholder="Date de naissance">
+					</div>
+					<div class="form-group">
+						<input type="text" name="cni" placeholder="CNI">
+					</div>
+					<div class="form-group">
+						<select name="zone">
+							<option value="">Sélectionner une zone</option>
+							<option value="Zone Tokoin">Zone Tokoin</option>
+                            <option value="Zone Nyekonakpoè">Zone Nyekonakpoè</option>
+                            <option value="zone agoè">Zone agoè</option>
+                            <option value="Zone Hedzranawoé">Zone Hedzranawoé</option>
+                            <option value="Zone Grand marché">Zone Grand marché</option>
+                            <option value="Zone Bè">Zone Bè</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<button type="submit">Suivant</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	// Animation au chargement de la page
+	document.addEventListener("DOMContentLoaded", function() {
+		const formContainer = document.querySelector(".form-container");
+		formContainer.classList.add("fade-in");
+	});
+
+	// Redirection vers une autre page
+	function redirectToNextPage() {
+		// Effectuer des actions supplémentaires si nécessaire
+
+		// Rediriger vers une autre page
+		window.location.href = "page_suivante.html";
+	}
+</script>
+
+{% endblock  %}

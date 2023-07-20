@@ -1,0 +1,42 @@
+{% extends 'admin/principal.html' %}
+
+{% block content %}
+
+    
+<div class="text-right">
+	<a href="{% url 'pause_client' %}" class="btn btn-primary">Retour</a>
+   
+  </div>
+<div class="container">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Informations du client</h3>
+        <ul class="list-group">
+          <li class="list-group-item">Nom :<strong> {{client.nom}} </strong></li>
+          <li class="list-group-item">Prénom : <strong>{{client.prenom}}</strong></li>
+          <li class="list-group-item">date naissance : <strong>{{client.date_naissance}}</strong></li>
+          <li class="list-group-item">Phone mail : <strong>{{client.phone_mail}}</strong></li>
+          <li class="list-group-item">cni : <strong>{{client.cni}}</strong></li>
+          <li class="list-group-item">Adresse : <strong>{{client.adresse}} </strong></li>
+          <li class="list-group-item">Zone : <strong>{{client.Zone}} </strong></li>
+          <li class="list-group-item">Type compte : <strong>{{client.Type_compte}} </strong></li>
+          <li class="list-group-item">Frais Tontine : <strong>{{client.Frais_tontine}} </strong></li>
+          <li class="list-group-item">Profession : <strong>{{client.profession}}</strong></li>
+          <li class="list-group-item">nom garant : <strong>{{client.nom_garant}}</strong></li>
+          <li class="list-group-item">prenom garant  : <strong>{{client.prenom_garant}}</strong></li>
+          <li class="list-group-item">cni garant : <strong>{{client.cni_garant}}</strong></li>
+          <li class="list-group-item">Adresse garant : <strong>{{client.adresse_garant}}</strong></li>
+          <li class="list-group-item">Profession garant : <strong>{{client.profession_garant}}</strong></li>
+        </ul><br/>
+    
+        <div class="text-center">
+            <a href="{% url 'accepter' client.id %}" class="btn btn-primary">Accepter</a>
+            <a href="{% url 'refuser' client.id %}" class="btn btn-danger">Refuser</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock content %}

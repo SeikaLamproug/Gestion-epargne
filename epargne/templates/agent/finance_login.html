@@ -1,0 +1,73 @@
+{% extends 'agent/finance.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login - Agent de Tontine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'login_agent/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login_agent/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login_agent/css/animate.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card animated fadeInDown">
+                    <div class="card-header">
+                        <h3 class="text-center">Agent de Tontine - Connexion</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method='POST'>
+							{% csrf_token %}
+							{% if messages %}
+
+					{% for message in messages %}
+					<div class="alert alert-info">
+						{{ message }}
+					</div>
+					{% endfor %}
+
+				{% endif %}
+                            <div class="form-group">
+                                <label for="username">Identifiant</label>
+                                <input type="text" name="usernames" class="form-control" id="username" placeholder="Nom d'utilisateur">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mot de passe</label>
+                                <input type="password" name="passwords" class="form-control" id="password" placeholder="Mot de passe">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block btn-lg">Se connecter</button>
+                            </div>
+                        </form>
+                        <div class="text-center">
+                            <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'login_agent/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'login_agent/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.forgot-password').click(function(e) {
+                e.preventDefault();
+                alert("Fonctionnalité de réinitialisation du mot de passe à venir !");
+            });
+
+            $('.signup-link').click(function(e) {
+                e.preventDefault();
+                alert("Fonctionnalité d'inscription à venir !");
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock content %}

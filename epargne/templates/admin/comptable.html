@@ -1,0 +1,83 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Sidebar 07</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{%static 'comptable/css/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<h1><a href="index.html" class="logo">L.E</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="{% url 'livret_home' %}"><span class="fa fa-home"></span>Accueil</a>
+          </li>
+          <li>
+              <a href="#"><span class="fa fa-user"></span> profil</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-money"></span> Mon compte</a>
+          </li>
+          <li>
+            <a href="#"><span class="fas fa-newspaper"></span> Mon Journal</a>
+          </li>
+          
+          <li>
+            <a href="{% url 'suggestion_client' %}"><span class="fa fa-lightbulb"></span> Suggestion</a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="#"><span class="fa fa-question-circle"></span> Aide</a>
+          </li>
+          <li>
+            <a href="#"><span class="fas fa-sign-out-alt"></span> Déconnexion</a>
+          </li>
+          
+        </ul>
+
+        <div class="footer">
+        	
+        </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+        {% block content %}
+        
+        {% endblock content %}
+         
+      </div>
+		</div>
+
+    <script src="{%static 'comptable/js/jquery.min.js'%}"></script>
+    <script src="{%static 'comptable/js/popper.js'%}"></script>
+    <script src="{%static 'comptable/js/bootstrap.min.js'%}"></script>
+    <script src="{%static 'comptable/js/main.js'%}"></script>
+  </body>
+</html>

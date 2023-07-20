@@ -1,0 +1,76 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Sidebar 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'livret/https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'livret/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <div class="custom-menu">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          </button>
+        </div>
+        <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+          <div class="user-logo">
+            <div class="img" style="background-image: url(images/logo.jpg);"></div>
+            <h3>Catriona Henderson</h3>
+          </div>
+        </div>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="{% url 'livret_home' %}"><span class="fa fa-home mr-3"></span> Home</a>
+          </li>
+          <li>
+              <a href="#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
+          </li>
+          <li>
+            <a href="#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+          </li>
+        </ul>
+
+      </nav>
+
+      <!-- Page Content  -->
+     
+        {% block content %}
+
+       
+        <!-- Ajoutez votre contenu spécifique ici -->
+
+        {% endblock %}
+     
+
+    <script src="{% static 'livret/js/jquery.min.js' %}"></script>
+    <script src="{% static 'livret/js/popper.js' %}"></script>
+    <script src="{% static 'livret/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'livret/js/main.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+{% extends 'admin/principal.html' %}
+
+{% block content %}
+
+<style>
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+  }
+
+  .form-container form {
+    width: 300px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container label,
+  .form-container select,
+  .form-container button {
+    margin-bottom: 10px;
+  }
+
+  .form-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-container .btn-retour {
+    background-color: blue;
+    margin-left: 60px;
+  }
+</style>
+
+<div class="form-container">
+  <form method="post" action="">
+    {% csrf_token %}
+    
+    
+    <div class="form-group">
+      <label for="clients">Clients :</label>
+      <select class="form-control" name="clients" id="clients" multiple>
+        {% for client in clients %}
+          <option value="{{ client.identifiant }}">{{ client.nom }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Assigner</button>
+    
+  </form>
+</div>
+
+{% endblock %}

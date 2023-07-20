@@ -1,0 +1,43 @@
+{% extends "compte/base.html" %}
+{% block content %}
+
+<div class="global-container">
+	<div class="card login-form">
+	<div class="card-body">
+		<h3 class="card-title text-center">FICHE D'INSCRIPTION</h3>
+		<div class="card-text">
+			{% if messages %}
+
+					{% for message in messages %}
+					<div class="alert alert-info">
+						{{ message }}
+					</div>
+					{% endfor %}
+
+				{% endif %}
+			<!--
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+			
+			  
+			<form method="post" >
+				{% csrf_token %}
+				<div class="form-group">
+					<select id="phone" name="phone">
+						<option value="email">Email</option>
+						
+					  </select>
+				  <input type="text" id="email" name="email" aria-describedby  class="form-control form-control-sm">
+					
+				</div>
+
+				<a href="#" style="float:right;font-size:12px;"></a>
+				<button type="submit" class="btn btn-primary btn-block mt-2">Envoyer</button>
+
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+
+
+{% endblock %}
